@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links with Copy Buttons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .row input {
+            flex: 1;
+            padding: 5px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .row button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .row button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <input type="text" value="https://replayweb-page.pages.dev/post-1.wacz" readonly id="link1">
+            <button onclick="copyToClipboard('link1')">Copy</button>
+        </div>
+        <div class="row">
+            <input type="text" value="https://replayweb-page.pages.dev/post-2.wacz" readonly id="link2">
+            <button onclick="copyToClipboard('link2')">Copy</button>
+        </div>
+        <div class="row">
+            <input type="text" value="https://replayweb-page.pages.dev/post-3.wacz" readonly id="link3">
+            <button onclick="copyToClipboard('link3')">Copy</button>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(id) {
+            const input = document.getElementById(id);
+            input.select();
+            input.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand("copy");
+            alert(`Copied: ${input.value}`);
+        }
+    </script>
+</body>
+</html>
